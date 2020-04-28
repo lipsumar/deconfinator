@@ -1,7 +1,7 @@
 require('dotenv').config();
 const axios = require('axios')
 const cron = require('node-cron');
-const { postTweet } = require('./twitterLib');
+const { postTweet, postReply } = require('./twitterLib');
 const TwitterListener = require('./TwitterListener');
 const mentionListener = new TwitterListener(require('./credentials'))
 
