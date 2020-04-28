@@ -2,7 +2,8 @@ require('dotenv').config();
 const axios = require('axios')
 const cron = require('node-cron');
 const { postTweet } = require('./twitterLib');
-
+const TwitterListener = require('./TwitterListener');
+const mentionListener = new TwitterListener(require('./credentials'))
 
 async function getText(){
   const resp = await axios.get(`${process.env.AUTOMOTRON_BASE_URL}/api/generators/zuIF6oVUs/run`)
