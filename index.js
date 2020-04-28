@@ -21,3 +21,12 @@ async function scheduledTweet () {
 }
 
 cron.schedule('0 7,8,9,10,11,12,13,14,15 * * *', scheduledTweet);
+
+mentionListener.listenTo(['@deconfinatorex'])
+mentionListener.on('tweet', async (tweet) => {
+  console.log('Mention!', tweet.text)
+  const text = await getText();
+  console.log('reply =>', text)
+  postReply(text, tweet);
+})
+mentionListener.startListening();
